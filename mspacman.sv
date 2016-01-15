@@ -123,14 +123,31 @@ input 		     [1:0]		gpio1_IN;
 //=======================================================
 //  REG/WIRE declarations
 //=======================================================
+wire nM1;
+wire nMREQ;
+wire nIORQ;
+wire nRD;
+wire nWR;
+wire nRFSH;
+wire nHALT;
+wire nBUSACK;
 
+wire nWAIT;
+wire nBUSRQ = 1;
+wire nINT;
+wire nNMI = 1;
 
+wire [15:0] A;
+wire [7:0] D; 
 
+wire reset;
+wire locked;
+wire clk_cpu;
 
 //=======================================================
 //  Structural coding
 //=======================================================
-
+z80_top_direct_n z80_(.*, .nRESET(reset), .CLK(clk_cpu));
 
 
 endmodule
